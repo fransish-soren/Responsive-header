@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.container {
+  width: min(90%, 1200px);
+  margin: auto;
+}
+/* ===== HEADER ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #111;
+  color: #fff;
+}
+.nav {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.logo span,
+.nav-links a:hover,
+.nav-links .active {
+  color: #00d9ff;
+}
+/* ===== NAVIGATION ===== */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  padding: .5rem 0;
+  transition: .3s;
+}
+/* Active underline */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #00d9ff;
+  transition: .3s;
+}
+.nav-links a:hover::after,
+.nav-links .active::after {
+  width: 100%;
+}
+/* ===== MOBILE BUTTON ===== */
+#menu {
+  display: none;
+}
+.menu-btn {
+  display: none;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: #555;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    display: none;
+  }
+
+  #menu:checked ~ .nav-links {
+    display: flex;
+  }
+}
